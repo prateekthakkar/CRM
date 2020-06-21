@@ -1,0 +1,30 @@
+{% load static %}
+<html>
+<head>
+<title>RESET</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+</head>
+<body>
+<div id="sc-password">
+  <h1>Reset Password</h1>
+  <form method="post">
+	{% csrf_token %}
+  <div class="sc-container">
+  {{form.email}}
+    {% comment %} <input type="email" name="email" autocomplete="email" maxlength="254" required placeholder="Username or Email" id="id_email"> {% endcomment %}
+    <input type="submit" value="Get New Password" />
+  </div>
+  </form>
+</div>
+</body>
+<script>
+  //Query All input fields
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder='Email..';
+  for (var field in form_fields){	
+    form_fields[field].className += ' form-control'
+  }
+</script>
+</html>
+<script src="{% static 'js/jquery.min.js' %}"> 
+
